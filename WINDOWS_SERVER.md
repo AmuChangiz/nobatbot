@@ -1,38 +1,40 @@
-# راه‌اندازی روی Windows Server
+# Deploy on Windows Server
 
-**Python + SQLite** — حدود **۸۰ MB RAM**
+**English** | [فارسی](WINDOWS_SERVER.fa.md)
 
-## پیش‌نیاز
+**Python + SQLite** — about **80 MB RAM**
 
-1. **Python 3.12** از [python.org](https://www.python.org/downloads/) — تیک **Add to PATH**
-2. فایل **`.env`** با `BOT_TOKEN` و `SUPERADMIN_IDS`
+## Requirements
 
-## نصب و اجرا
+1. **Python 3.12** from [python.org](https://www.python.org/downloads/) — check **Add to PATH**
+2. A **`.env`** file with `BOT_TOKEN` and `SUPERADMIN_IDS`
+
+## Install and run
 
 ```
-setup.bat    ← یک‌بار
-start.bat    ← اجرای ربات
+setup.bat    ← once
+start.bat    ← run the bot
 ```
 
-| فایل | کار |
-|------|-----|
-| `setup.bat` | ساخت venv و نصب پکیج‌ها |
-| `start.bat` | اجرای ربات |
-| `stop.bat` | توقف ربات |
-| `restart.bat` | راه‌اندازی مجدد |
-| `logs.bat` | مشاهده لاگ زنده |
-| `danger/reset.bat` | ⚠️ factory reset — فقط `.env` می‌ماند |
+| File | Purpose |
+|------|---------|
+| `setup.bat` | Create venv and install packages |
+| `start.bat` | Run the bot |
+| `stop.bat` | Stop the bot |
+| `restart.bat` | Restart |
+| `logs.bat` | Live log |
+| `danger/reset.bat` | ⚠️ factory reset — only `.env` stays on disk |
 
-## انتقال به سرور
+## Move to a server
 
-1. کل پوشه را کپی کنید (شامل `.env` و `data/clinic.db`)
-2. Python 3.12 را روی سرور نصب کنید
-3. اگر `.venv` نبود: `setup.bat`
+1. Copy the whole folder (including `.env` and `data/clinic.db`)
+2. Install Python 3.12 on the server
+3. If `.venv` is missing: `setup.bat`
 4. `start.bat`
 
-> **نکته:** `.venv` را لازم نیست از PC دیگر کپی کنید — روی سرور با `setup.bat` ساخته می‌شود.
+> **Note:** You do not need to copy `.venv` from another PC — create it on the server with `setup.bat`.
 
-## اجرای خودکار
+## Run at startup
 
 Task Scheduler → At startup → Action:
 
@@ -40,13 +42,13 @@ Task Scheduler → At startup → Action:
 C:\path\to\bot\start.bat
 ```
 
-## تست
+## Test
 
-1. در بله: `/start`
-2. پنل ادمین: `/admin`
+1. In Bale: `/start`
+2. Admin panel: `/admin`
 
-## عیب‌یابی
+## Troubleshooting
 
-**ربات پاسخ نمی‌دهد:** `logs.bat` یا فایل `logs/bot.log`
+**Bot does not reply:** `logs.bat` or `logs/bot.log`
 
-**چند instance:** فقط یک‌بار `start.bat` بزنید — خودش instance قبلی را می‌بندد.
+**Multiple instances:** run `start.bat` only once — it stops the previous process.
