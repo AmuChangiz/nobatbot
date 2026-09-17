@@ -1,0 +1,8 @@
+sqlalchemy[asyncio]==2.0.36
+aiosqlite==0.20.0
+apscheduler==3.10.4
+pydantic-settings==2.6.1
+python-dotenv==1.0.1
+pytz==2024.2
+python-bale-bot>=2.5.0
+jdatetime==5.0.0
